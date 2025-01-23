@@ -29,5 +29,5 @@ chmod +x $GITHUB_WORKSPACE/scripts/preset-adguard-core.sh
 
 # Execute setup scripts
 $GITHUB_WORKSPACE/scripts/preset-terminal-tools.sh
-$GITHUB_WORKSPACE/scripts/preset-adguard-core.sh aarch64
+$GITHUB_WORKSPACE/scripts/preset-adguard-core.sh arm64
 
