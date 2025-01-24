@@ -4,6 +4,7 @@ if ! uci -q get system.@imm_init[0].system_chn > "/dev/null"; then
     uci -q batch <<- EOF
         set system.@system[0].timezone="<+07>-7"
         set system.@system[0].zonename="Asia/Ho Chi Minh"
+        set system.@system[0].hostname="Wifi Nha Tao"
 
         delete system.ntp.server
         add_list system.ntp.server="2.asia.pool.ntp.org"  # Google NTP server (Domain)
