@@ -21,7 +21,6 @@ git clone --depth=1 https://github.com/kongfl888/luci-app-adguardhome package/lu
 git clone --depth=1 -b main https://github.com/fw876/helloworld package/luci-app-ssr-plus
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall2 package/luci-app-passwall2
 # git_sparse_clone master https://github.com/vernesong/OpenClash package/luci-app-openclash
-git clone --depth 1 --branch master https://github.com/muink/luci-app-netspeedtest.git package/luci-app-netspeedtest
 
 # Setup scripts permissions
 chmod +x $GITHUB_WORKSPACE/scripts/preset-terminal-tools.sh
