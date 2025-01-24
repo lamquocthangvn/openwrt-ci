@@ -1,0 +1,22 @@
+uci -q get system.@imm_init[0] > "/dev/null" || uci -q add system imm_init > "/dev/null"
+
+if ! uci -q get system.@imm_init[0].system_chn > "/dev/null"; then
+    uci -q batch <<- EOF
+        set system.@system[0].timezone="ICT-7"
+        set system.@system[0].zonename="Asia/Ho_Chi_Minh"
+
+        delete system.ntp.server
+        add_list system.ntp.server="129.250.35.250"    # NTP server in Singapore (IP)
+        add_list system.ntp.server="129.250.35.251"    # NTP server in Japan (IP)
+        add_list system.ntp.server="133.243.238.243"   # NTP server in Japan (IP)
+        add_list system.ntp.server="203.107.6.88"      # NTP server in China (IP)
+        add_list system.ntp.server="time.cloudflare.com"  # Cloudflare NTP server (Domain)
+        add_list system.ntp.server="time1.google.com"  # Google NTP server (Domain)
+        add_list system.ntp.server="time2.google.com"  # Google NTP server (Domain)
+
+        set system.@imm_init[0].system_chn="1"
+        commit system
+    EOF
+fi
+
+exit 0

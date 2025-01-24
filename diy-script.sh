@@ -32,3 +32,4 @@ chmod +x "$GITHUB_WORKSPACE"/scripts/preset-adguard-core.sh
 
 # init-script
 mv "$GITHUB_WORKSPACE"/init-scripts/990_set-wireless.sh package/base-files/files/etc/uci-defaults/
+mv "$GITHUB_WORKSPACE"/init-scripts/99-default-settings-chinese package/emortal/default-settings/files/99-default-settings-chinese
