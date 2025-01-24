@@ -17,6 +17,7 @@ configure_wifi() {
   local channel=$2
   local htmode=$3
   local ssid=$4
+  local band=$5
   local current_encryption=$(uci get wireless.default_radio${radio}.encryption)
 
   # 如果当前加密方式已设置且不为"none"，则不更新配置
@@ -43,6 +44,11 @@ configure_wifi() {
   uci set wireless.default_radio${radio}.bss_transition='1'
   uci set wireless.default_radio${radio}.wnm_sleep_mode='1'
   uci set wireless.default_radio${radio}.wnm_sleep_mode_no_keys='1'
+
+  # Disable 2.4G WiFi
+  if [ "$band" = '2g' ]; then
+    uci set wireless.radio${radio}.disabled='1'
+  fi
 }
 
 # 查询mode
@@ -96,7 +102,6 @@ set_wifi_def_cfg() {
     fi
     ;;
   '2g')
-    uci set wireless.radio${1}.disabled='1'
     WIFI_SSID="${BASE_SSID}_2.4G"
     ;;
   *)
@@ -108,7 +113,7 @@ set_wifi_def_cfg() {
     ;;
   esac
 
-  configure_wifi "$1" "$channel" "$htmode" "$WIFI_SSID"
+  configure_wifi "$1" "$channel" "$htmode" "$WIFI_SSID" "$band"
 }
 
 for i in $(seq 0 $((RADIO_NUM - 1))); do
