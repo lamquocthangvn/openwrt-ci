@@ -22,6 +22,8 @@ git clone --depth=1 -b main https://github.com/fw876/helloworld package/luci-app
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall2 package/luci-app-passwall2
 git clone --depth=1 https://github.com/gSpotx2f/luci-app-log package/luci-app-log-viewer
 git clone --depth=1 https://github.com/ParticleG/luci-app-macvlan package/luci-app-macvlan
+git clone --depth=1 --branch master --single-branch https://github.com/muink/luci-app-tinyfilemanager.git package/luci-app-tinyfilemanager
+
 # git_sparse_clone master https://github.com/vernesong/OpenClash package/luci-app-openclash
 
 # Setup scripts permissions
