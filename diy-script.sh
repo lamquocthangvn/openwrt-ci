@@ -27,11 +27,12 @@ git clone --depth=1 https://github.com/ParticleG/luci-app-macvlan package/luci-a
 # Setup scripts permissions
 chmod +x "$GITHUB_WORKSPACE"/scripts/preset-terminal-tools.sh
 chmod +x "$GITHUB_WORKSPACE"/scripts/preset-adguard-core.sh
-chmod +x "$GITHUB_WORKSPACE"/scripts/preset-spoof-proxy.sh
+chmod +x "$GITHUB_WORKSPACE"/scripts/preset-dnsr.sh
 
 # Execute setup scripts
 "$GITHUB_WORKSPACE"/scripts/preset-terminal-tools.sh
 "$GITHUB_WORKSPACE"/scripts/preset-adguard-core.sh arm64
+"$GITHUB_WORKSPACE"/scripts/preset-dnsr.sh arm64
 
 # init-script
 mv "$GITHUB_WORKSPACE"/init-scripts/990_set-wireless.sh package/base-files/files/etc/uci-defaults/
