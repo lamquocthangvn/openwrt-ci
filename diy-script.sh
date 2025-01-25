@@ -21,7 +21,7 @@ git clone --depth=1 https://github.com/kongfl888/luci-app-adguardhome package/lu
 git clone --depth=1 -b main https://github.com/fw876/helloworld package/luci-app-ssr-plus
 git clone --depth=1 https://github.com/xiaorouji/openwrt-passwall2 package/luci-app-passwall2
 git clone --depth=1 https://github.com/gSpotx2f/luci-app-log package/luci-app-log-viewer
-git clone --depth=1 https://github.com/ParticleG/luci-app-macvlan /package/luci-app-macvlan
+git clone --depth=1 https://github.com/ParticleG/luci-app-macvlan package/luci-app-macvlan
 # git_sparse_clone master https://github.com/vernesong/OpenClash package/luci-app-openclash
 
 # Setup scripts permissions

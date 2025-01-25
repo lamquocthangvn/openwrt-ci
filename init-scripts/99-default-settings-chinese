@@ -1,20 +1,22 @@
-uci -q get system.@imm_init[0] > "/dev/null" || uci -q add system imm_init > "/dev/null"
+#!/bin/sh
 
-if ! uci -q get system.@imm_init[0].system_chn > "/dev/null"; then
-    uci -q batch <<- EOF
+uci -q get system.@imm_init[0] >"/dev/null" || uci -q add system imm_init >"/dev/null"
+
+if ! uci -q get system.@imm_init[0].system_chn >"/dev/null"; then
+  uci -q batch <<-EOF
         set system.@system[0].timezone="<+07>-7"
         set system.@system[0].zonename="Asia/Ho Chi Minh"
-        set system.@system[0].hostname="Wifi Nha Tao"
+        set system.@system[0].hostname="WifiNhaTao"
 
         delete system.ntp.server
-        add_list system.ntp.server="2.asia.pool.ntp.org"  # Google NTP server (Domain)
-        add_list system.ntp.server="2.vn.pool.ntp.org"  # Google NTP server (Domain)
-        add_list system.ntp.server="time1.google.com"  # Google NTP server (Domain)
-        add_list system.ntp.server="time.cloudflare.com"  # Cloudflare NTP server (Domain)
+        add_list system.ntp.server="3.asia.pool.ntp.org"
+        add_list system.ntp.server="2.vn.pool.ntp.org" 
+        add_list system.ntp.server="time1.google.com" 
+        add_list system.ntp.server="time.cloudflare.com"
 
         set system.@imm_init[0].system_chn="1"
         commit system
-    EOF
+EOF
 fi
 
 exit 0
