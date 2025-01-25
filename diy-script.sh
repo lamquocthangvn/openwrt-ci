@@ -24,6 +24,12 @@ git clone --depth=1 https://github.com/gSpotx2f/luci-app-log package/luci-app-lo
 git clone --depth=1 https://github.com/ParticleG/luci-app-macvlan package/luci-app-macvlan
 git clone --depth=1 --branch master --single-branch https://github.com/muink/luci-app-tinyfilemanager.git package/luci-app-tinyfilemanager
 
+find ./ | grep Makefile | grep v2ray-geodata | xargs rm -f
+find ./ | grep Makefile | grep mosdns | xargs rm -f
+
+git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/mosdns
+git clone https://github.com/sbwml/v2ray-geodata package/v2ray-geodata
+
 # git_sparse_clone master https://github.com/vernesong/OpenClash package/luci-app-openclash
 
 # Setup scripts permissions
